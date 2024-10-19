@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hover+--+</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+      
+        .roboto-light {
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .roboto-regular {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .roboto-medium {
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .roboto-black {
+            font-family: "Roboto", sans-serif;
+            font-weight: 900;
+            font-style: normal;
+        }
+        .toHov{text-decoration: unset; transition: all 0.3s ease-in-out;}
+
+    </style>
+</head>
+<body>
+    
+
+    <a class="toHov roboto-medium" href="#">project hover</a> <br>
+    <a class="toHov roboto-medium" href="#">unaltro butt</a>
+
+
+    <script>
+        const hovButs = document.querySelectorAll(".toHov");
+        const elems = ["-","-","-","+","-","-", ];
+        
+        
+        for (let i = 0; i < hovButs.length; i++) {
+
+            const origntext = hovButs[i].innerHTML;
+
+            hovButs[i].addEventListener("mouseenter", ()=> {
+                
+                const text = hovButs[i].innerHTML;
+
+                for (let x = 0; x < 7; x++) {
+                    // console.log("sono al ciclo x:" + x)
+
+                    if(x==0 || x == 3) {
+                        
+                        let newWord = "";
+                        for (let j = 0; j < text.length; j++) {
+                          
+                            let numCasuale = Math.floor(Math.random() * elems.length)
+                            newWord += elems[numCasuale];
+                            
+                            hovButs[i].innerHTML = newWord;
+                         
+                        }
+                    }
+                    if(x==1 || x == 4) {
+                        setTimeout(() => {
+                            let newWord = "";
+                            for (let j = 0; j < text.length; j++) {
+
+                                let numCasuale = Math.floor(Math.random() * elems.length)
+                                if(numCasuale %2 ==0 || j %2==0) {
+
+                                    newWord += elems[numCasuale];
+                                    
+                                }else{
+                                    newWord+=text[i]
+                                }
+                                
+                                hovButs[i].innerHTML = newWord;
+                            }
+                        },x==1? 130:190)
+                    }
+                    if(x==2|| x == 5) {
+                        setTimeout(() => {
+                            let newWord = "";
+                            for (let j = 0; j < text.length; j++) {
+
+                                let numCasuale = Math.floor(Math.random() * elems.length)
+                                if(numCasuale %2 ==0 || j %2==0) {
+
+                                    newWord += elems[numCasuale];
+                                    
+                                }else{
+                                    newWord+=text[i]
+                                }
+                                
+                                hovButs[i].innerHTML = newWord;
+                            }
+                        },x==2? 170:205)
+                    }
+                    if(x==6) {
+                        setTimeout(() => {
+                            hovButs[i].innerHTML = origntext;
+                        },266)
+                    }
+                    
+                }
+                
+            })
+
+            hovButs[i].addEventListener("mouseleave", ()=> {
+                
+              
+                hovButs[i].innerHTML = origntext;
+                
+            })
+            
+            
+        }
+
+
+    </script>
+</body>
+</html>
