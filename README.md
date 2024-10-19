@@ -17,8 +17,7 @@ $ git clone https://github.com/foferys/text-hover----.git
 ```
 
 ### Start:
-_👀 client and server installation & start_
-Open the file index.html on your browser
+_👀 Open the file index.html on your browser
 
 ## Contributors ✨ 
 [![](https://img.shields.io/badge/contributors-1-46CC12)](# "Contributors")
