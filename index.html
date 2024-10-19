@@ -7,38 +7,39 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
       
-        .roboto-light {
-            font-family: "Roboto", sans-serif;
-            font-weight: 300;
-            font-style: normal;
-        }
+        .roboto-light {font-family: "Roboto", sans-serif;font-weight: 300;font-style: normal;}
+        .roboto-regular {font-family: "Roboto", sans-serif;font-weight: 400;font-style: normal;}
+        .roboto-medium {font-family: "Roboto", sans-serif;font-weight: 500;font-style: normal;}
+        .roboto-black {font-family: "Roboto", sans-serif;font-weight: 900;font-style: normal;}
 
-        .roboto-regular {
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
-            font-style: normal;
+        .toHov{text-decoration: unset; transition: all 0.3s ease-in-out; mix-blend-mode: difference; color: #ffff82;}
+        .text-orange{color: orange;}
+        #Excontainer {
+            position: relative;
+            margin: 0 auto;
+            width: 90lvw;
+            max-width: 900px;
+            border: 1px solid red;
+            height: 60lvh;
+            background: linear-gradient(rgb(252 101 22 / 34%), rgb(68 44 24 / 34%)), url(https://images.pexels.com/photos/13391274/pexels-photo-13391274.jpeg);
+            background-size: cover;
         }
-
-        .roboto-medium {
-            font-family: "Roboto", sans-serif;
-            font-weight: 500;
-            font-style: normal;
-        }
-
-        .roboto-black {
-            font-family: "Roboto", sans-serif;
-            font-weight: 900;
-            font-style: normal;
-        }
-        .toHov{text-decoration: unset; transition: all 0.3s ease-in-out;}
-
+        #Excontainer span{position: absolute; top: 20%;left: 50%;transform: translate(-50%,-20%);}
+        #Excontainer h3{position: absolute;top: 0;left: 50%;color: white;transform: translateX(-50%);mix-blend-mode: difference;text-align: center;}
+        
     </style>
 </head>
 <body>
     
+    <div id="Excontainer">
+        <h3 class="roboto-medium">Try to hover the buttons below 👾</h3>
+        <span>
+            <a class="toHov roboto-light" href="#">Project hover</a> <br>
+            <a class="toHov roboto-regular" href="#">Another butt</a><br>
+            <a class="toHov roboto-black" href="#">Allinaword</a>
+        </span>
 
-    <a class="toHov roboto-medium" href="#">project hover</a> <br>
-    <a class="toHov roboto-medium" href="#">unaltro butt</a>
+    </div>
 
 
     <script>
@@ -58,16 +59,17 @@
                     // console.log("sono al ciclo x:" + x)
 
                     if(x==0 || x == 3) {
-                        
-                        let newWord = "";
-                        for (let j = 0; j < text.length; j++) {
-                          
-                            let numCasuale = Math.floor(Math.random() * elems.length)
-                            newWord += elems[numCasuale];
-                            
-                            hovButs[i].innerHTML = newWord;
-                         
-                        }
+                        setTimeout(() => {
+                            let newWord = "";
+                            for (let j = 0; j < text.length; j++) {
+                                
+                                let numCasuale = Math.floor(Math.random() * elems.length)
+                                newWord += elems[numCasuale];
+                                
+                                hovButs[i].innerHTML = newWord;
+                                
+                            }
+                        },x==0? 0:230)
                     }
                     if(x==1 || x == 4) {
                         setTimeout(() => {
@@ -85,7 +87,7 @@
                                 
                                 hovButs[i].innerHTML = newWord;
                             }
-                        },x==1? 130:190)
+                        },x==1? 120:270)
                     }
                     if(x==2|| x == 5) {
                         setTimeout(() => {
@@ -103,12 +105,12 @@
                                 
                                 hovButs[i].innerHTML = newWord;
                             }
-                        },x==2? 170:205)
+                        },x==2? 190:320)
                     }
                     if(x==6) {
                         setTimeout(() => {
                             hovButs[i].innerHTML = origntext;
-                        },266)
+                        },390)
                     }
                     
                 }
